@@ -1,0 +1,45 @@
+{
+  "name": "api-boilerplate",
+  "version": "1.0.0",
+  "description": "Boilerplate made for creating back-end applications with Postgres + Sequelize ORM + AdminJS interface. Enjoy!",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "ts-node-dev src/app.ts"
+  },
+  "keywords": [
+    "sequelize",
+    "typescript",
+    "express"
+  ],
+  "author": "daviebatista",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/bcrypt": "^5.0.0",
+    "@types/cors": "^2.8.13",
+    "@types/express": "^4.17.17",
+    "@types/express-session": "^1.17.7",
+    "@types/jsonwebtoken": "^9.0.2",
+    "@types/node": "^20.3.3",
+    "sequelize-cli": "^6.6.1",
+    "ts-node-dev": "^2.0.0",
+    "typescript": "^5.1.6"
+  },
+  "dependencies": {
+    "@adminjs/express": "^6.0.0",
+    "@adminjs/sequelize": "^4.0.0",
+    "@adminjs/upload": "^4.0.0",
+    "adminjs": "^7.0.8",
+    "bcrypt": "^5.1.0",
+    "connect-session-sequelize": "^7.1.7",
+    "cors": "^2.8.5",
+    "dotenv": "^16.3.1",
+    "env-var": "^7.3.1",
+    "express": "^4.18.2",
+    "express-formidable": "^1.2.0",
+    "express-session": "^1.17.3",
+    "jsonwebtoken": "^9.0.0",
+    "pg": "^8.11.1",
+    "sequelize": "^6.32.1"
+  }
+}

@@ -2,12 +2,11 @@ import dotenv from 'dotenv'
 dotenv.config()
 
 import express from 'express'
+import { router } from './routes'
 
 const app = express()
 
-const router = express.Router()
-
-router.get('/', (request, response) => response.json({ ping: `Hello, we're running on Node.js!` }))
+app.use(express.json())
 
 app.use(router)
 

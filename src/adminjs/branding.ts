@@ -5,6 +5,7 @@ import { BrandingOptions } from 'adminjs'
 export const brandingOptions: BrandingOptions = {
     companyName: "Your Project's Name",
     logo: '/postgres.png',
+    favicon: '/postgres.png',
     theme: {
         colors: {
             primary100: '#002D62',

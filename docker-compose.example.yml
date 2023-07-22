@@ -1,0 +1,33 @@
+version: '3'
+
+services:
+  web: 
+    build: .
+
+    image: node:20
+    depends_on: 
+      - db
+
+    ports:
+      - "3000:3000"
+
+    environment:
+      DATABASE_URL: "postgres://'user':'password'@localhost:5432/api_name"
+      NODE_ENV: "development"
+
+    networks:
+      - postgres-boilerplate
+
+  db:
+    image: postgres
+    environment:
+      POSTGRES_PASSWORD: "postgres"
+    ports:
+      - "49555:5432"
+
+    networks:
+      - postgres-boilerplate
+
+networks:
+  postgres-boilerplate:
+    driver: bridge

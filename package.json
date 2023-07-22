@@ -2,15 +2,29 @@
   "name": "api-boilerplate",
   "version": "1.0.0",
   "description": "Boilerplate made for creating back-end applications with Postgres + Sequelize ORM + AdminJS interface. Enjoy!",
-  "main": "index.js",
+  "main": "./src/app.ts",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "ts-node-dev src/app.ts"
+    "cdb": "sequelize-cli db:create",
+    "create": "npm run cdb && npm run dev",
+    "create-test-db": "NODE_ENV=test sequelize-cli db:create",
+    "drop-test-db": "NODE_ENV=test sequelize-cli db:drop",
+    "dev": "ts-node-dev --transpile-only --ignore-watch node_modules src/app.ts",
+    "mg": "npx sequelize-cli migration:generate --name",
+    "sg": "npx sequelize-cli seed:generate --name",
+    "mi": "npx sequelize-cli db:migrate",
+    "mu": "npx sequelize-cli db:migrate:undo",
+    "sd": "npx sequelize-cli db:seed:all",
+    "test": "jest --watchAll"
   },
   "keywords": [
+    "adminjs",
+    "api",
+    "boilerplate",
+    "boilerplate-code",
+    "express",
+    "jest",
     "sequelize",
-    "typescript",
-    "express"
+    "typescript"
   ],
   "author": "daviebatista",
   "license": "ISC",
@@ -36,9 +50,14 @@
     "@types/cors": "^2.8.12",
     "@types/express": "~4.17.13",
     "@types/express-session": "^1.17.7",
+    "@types/jest": "^29.5.3",
     "@types/jsonwebtoken": "^8.5.8",
     "@types/node": "~17.0.10",
+    "@types/supertest": "^2.0.12",
+    "jest": "^29.6.1",
     "sequelize-cli": "~6.4.1",
+    "supertest": "^6.3.3",
+    "ts-jest": "^27.1.4",
     "ts-node-dev": "~1.1.8",
     "typescript": "~4.5.4"
   }

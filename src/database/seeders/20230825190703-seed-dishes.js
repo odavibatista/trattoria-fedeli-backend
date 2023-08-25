@@ -4,7 +4,7 @@ module.exports = {
     async up(queryInterface, Sequelize) {
         const [categories] = await queryInterface.sequelize.query('SELECT id FROM categories;')
 
-        await queryInterface.bulkInsert('categories', [
+        await queryInterface.bulkInsert('dishes', [
             {
                 name: 'Prosciutto di Parma',
                 details: 'Presunto italiano cru de altíssima qualidade cortado em tiras finas.',
@@ -275,6 +275,6 @@ module.exports = {
     },
 
     async down(queryInterface, Sequelize) {
-        await queryInterface.bulkDelete('courses', null, {})
+        await queryInterface.bulkDelete('dishes', null, {})
     }
 }

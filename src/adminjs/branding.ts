@@ -1,5 +1,3 @@
-// src/adminjs/branding.ts
-
 import { BrandingOptions } from 'adminjs'
 
 export const brandingOptions: BrandingOptions = {

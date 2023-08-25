@@ -72,9 +72,9 @@ export const locale: Locale = {
             noRecords: 'Nenhum registro',
             confirmDelete:
                 'Você tem certeza que deseja remover este item? Essa ação é irreversível',
-            welcomeOnBoard_title: 'Bem-vindo à bordo!',
+            welcomeOnBoard_title: 'Bem-vindo à cozinha!',
             welcomeOnBoard_subtitle:
-                'Agora você é um de nós! Preparamos algumas dicas para você começar:',
+                'Navegue pelas abas ao lado para ver os pratos, categorias ou pedidos.',
             loginWelcome:
                 'Ao AdminJS - o melhor framework admin para aplicações Node.js, baseado em React.',
             addingResources_title: 'Adicionando Recursos',

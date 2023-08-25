@@ -25,22 +25,21 @@ export default function Dashboard() {
                 <Table>
                     <TableHead>
                         <TableRow style={{ backgroundColor: '#0066b2' }}>
-                            <TableCell style={{ color: "#FFF" }}>Resources</TableCell>
-                            <TableCell style={{ color: "#FFF" }}>Registers</TableCell>
+                            <TableCell style={{ color: '#FFF' }}>Resources</TableCell>
+                            <TableCell style={{ color: '#FFF' }}>Registers</TableCell>
                         </TableRow>
                     </TableHead>
                     <TableBody>
-                        {
-                            resources ?
-                                Object.entries(resources).map(([resource, count]) => (
-                                    <TableRow key={resource}>
-                                        <TableCell>{resource}</TableCell>
-                                        <TableCell>{count}</TableCell>
-                                    </TableRow>
-                                ))
-                                :
-                                <></>
-                        }
+                        {resources ? (
+                            Object.entries(resources).map(([resource, count]) => (
+                                <TableRow key={resource}>
+                                    <TableCell>{resource}</TableCell>
+                                    <TableCell>{count}</TableCell>
+                                </TableRow>
+                            ))
+                        ) : (
+                            <></>
+                        )}
                     </TableBody>
                 </Table>
             </section>

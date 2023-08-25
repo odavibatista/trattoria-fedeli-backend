@@ -1,7 +1,7 @@
 {
-  "name": "api-boilerplate",
+  "name": "trattoria-fedeli",
   "version": "1.0.0",
-  "description": "Boilerplate made for creating back-end applications with Postgres + Sequelize ORM + AdminJS interface. Enjoy!",
+  "description": "Back-end application made for Trattoria Fedeli, a fictious italian restaurant made for the first challenge of OneBitCode.",
   "main": "./src/app.ts",
   "scripts": {
     "cdb": "sequelize-cli db:create",
@@ -14,6 +14,7 @@
     "mi": "npx sequelize-cli db:migrate",
     "mu": "npx sequelize-cli db:migrate:undo",
     "sd": "npx sequelize-cli db:seed:all",
+    "format": "prettier --write src/",
     "test": "jest --watchAll"
   },
   "keywords": [
@@ -55,6 +56,7 @@
     "@types/node": "~17.0.10",
     "@types/supertest": "^2.0.12",
     "jest": "^29.6.1",
+    "prettier": "3.0.2",
     "sequelize-cli": "~6.4.1",
     "supertest": "^6.3.3",
     "ts-jest": "^27.1.4",

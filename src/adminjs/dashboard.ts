@@ -5,16 +5,14 @@ import AdminJs, { PageHandler } from 'adminjs'
 export const dashboardOptions: {
     handler?: PageHandler
     component?: string
-    } = {
+} = {
     handler: async (requisition, response, context) => {
         /* Handler templates: */
         //  const property = await Property.count()
 
-
         response.json({
             /* Response template: */
-        // 'Properties' : properties,
-
+            // 'Properties' : properties,
         })
-    },
+    }
 }

@@ -1,7 +1,29 @@
-# Sequelize Boilerplate
+# Trattoria Fedeli - Back-end
 
-Boilerplate application ready for creating Databases and API's with AdminJs included, if you like to use ORM interfaces instead of SQL scripts.
-The project comes with most of its config done and with blank spaces for the database's tables' templates.
-Docker included, if you'd wish to integrate it with Jest's test environment.
-Jest and its types are included. You can change the files to .js extension if you'd like to.
-You only need to config it, and it's done!
+This application contains the back-end and database containing for the Trattoria Fedeli Project.
+
+## 📖 Index
+- [About](#about-it)
+- [Features](#features)
+- [Used Techs/Services](#techs-used)
+
+## ⛏ Used Techs/Services <a name = "techs-used"></a>
+- [AdminJS](https://www.npmjs.com/package/adminjs)
+- [BCrypt](https://www.npmjs.com/package/bcrypt)
+- [CORS](https://www.npmjs.com/package/cors)
+- [Docker](https://www.docker.com/)
+- [Docker Compose](https://docs.docker.com/compose/gettingstarted/)
+- [DotEnv](https://www.npmjs.com/package/dotenv)
+- [Env-Var](https://www.npmjs.com/package/env-var)
+- [Express](https://www.npmjs.com/package/express)
+- [Jest](https://www.npmjs.com/package/jest)
+- [JWT](https://www.npmjs.com/package/jwt)
+- [NodeJS](https://nodejs.org/)
+- [Node-Postgres](https://www.npmjs.com/package/pg)
+- [Photoshop](https://www.adobe.com/br/)
+- [Prettier](https://www.npmjs.com/package/prettier)
+- [Sequelize](https://www.npmjs.com/package/sequelize)
+- [Sequelize-Cli](https://www.npmjs.com/package/sequelize-cli)
+- [Supertest](https://www.npmjs.com/package/supertest)
+- [TS-Node-Dev](https://www.npmjs.com/package/ts-node-dev)
+- [TypeScript](https://www.npmjs.com/package/typescript)

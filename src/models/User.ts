@@ -1,6 +1,7 @@
-import { DataTypes, Model, Optional } from "sequelize"
+import { BelongsToManyAddAssociationMixin, BelongsToManyAddAssociationsMixin, BelongsToManyCountAssociationsMixin, BelongsToManyGetAssociationsMixin, BelongsToManyHasAssociationMixin, BelongsToManyRemoveAssociationMixin, BelongsToManyRemoveAssociationsMixin, DataTypes, Model, Optional } from "sequelize"
 import { sequelize } from "../database"
 import bcrypt from 'bcrypt'
+import { DishInstance } from "./Dish"
 
 type CheckPasswordCallback = (err?: Error, isSame?: boolean) => void
 
@@ -16,7 +17,14 @@ export interface User {
 export interface UserCreationAttributes extends Optional<User, 'id'> { }
 
 export interface UserInstance extends Model<User, UserCreationAttributes>, User {
-    checkPassword: (password: string, callbackfn: CheckPasswordCallback) => void
+    addDish: BelongsToManyAddAssociationMixin<DishInstance, number>,
+    addDishes: BelongsToManyAddAssociationsMixin<DishInstance, number>,
+    checkPassword: (password: string, callbackfn: CheckPasswordCallback) => void,
+    countDishes: BelongsToManyCountAssociationsMixin,
+    getDishes: BelongsToManyGetAssociationsMixin<DishInstance>,
+    hasDishes: BelongsToManyHasAssociationMixin<DishInstance, number>
+    removeDish: BelongsToManyRemoveAssociationMixin<DishInstance, number>
+    removeDishes: BelongsToManyRemoveAssociationsMixin<DishInstance, number>
 }
 
 export const User = sequelize.define<UserInstance, User>('User', {

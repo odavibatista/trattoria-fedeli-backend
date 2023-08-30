@@ -16,7 +16,6 @@ This application contains the back-end and database containing for the Trattoria
 - [DotEnv](https://www.npmjs.com/package/dotenv)
 - [Env-Var](https://www.npmjs.com/package/env-var)
 - [Express](https://www.npmjs.com/package/express)
-- [Jest](https://www.npmjs.com/package/jest)
 - [JWT](https://www.npmjs.com/package/jwt)
 - [NodeJS](https://nodejs.org/)
 - [Node-Postgres](https://www.npmjs.com/package/pg)

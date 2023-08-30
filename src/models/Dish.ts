@@ -11,7 +11,7 @@ export interface Dish {
     categoryId: number
 }
 
-export interface DishCreationAttributes extends Optional<Dish, 'id' | 'imageUrl' | 'vegetarian'> { }
+export interface DishCreationAttributes extends Optional<Dish, 'id' | 'imageUrl' > { }
 
 export interface DishInstance extends Model<Dish, DishCreationAttributes>, Dish { }
 

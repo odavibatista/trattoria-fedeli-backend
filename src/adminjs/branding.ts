@@ -2,8 +2,8 @@ import { BrandingOptions } from 'adminjs'
 
 export const brandingOptions: BrandingOptions = {
     companyName: 'Trattoria Fedeli',
-    logo: '/postgres.png',
-    favicon: '/postgres.png',
+    logo: '/trattoria-logo.png',
+    favicon: '/flag.png',
     theme: {
         colors: {
             primary100: '#367E18',

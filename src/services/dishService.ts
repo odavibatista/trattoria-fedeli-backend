@@ -2,6 +2,24 @@ import { Op } from "sequelize";
 import { Dish } from "../models";
 
 export const dishService    =   {
+    findAllPaginated: async (page: number, perPage: number) =>  {
+        const offset = (page - 1) * perPage
+
+        const { count, rows } = await Dish.findAndCountAll({
+            attributes: ['id', 'name', 'details', 'vegetarian', 'price', ['image_url', 'imageUrl']],
+            order: [['position', 'ASC']],
+            limit: perPage,
+            offset
+        })
+
+        return  {
+            categories: rows,
+            page,
+            perPage,
+            total: count
+        }
+    },
+
     findById: async (id: string)  =>  {
         const dish = await Dish.findByPk(id, {
             attributes: [

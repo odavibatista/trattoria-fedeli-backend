@@ -50,6 +50,8 @@ export const dishService    =   {
                 'id',
                 'name',
                 'details',
+                'vegetarian',
+                'price',
                 ['image_url', 'imageUrl']
             ],
             where: {

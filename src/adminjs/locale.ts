@@ -1,5 +1,3 @@
-// src/adminjs/locale.ts
-
 import { Locale } from 'adminjs'
 
 export const locale: Locale = {

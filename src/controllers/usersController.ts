@@ -1,6 +1,7 @@
 import { Response } from "express";
 import { AuthenticatedRequest } from "../middlewares/auth";
 import { userService } from "../services/userService";
+import { User } from "../models";
 
 export const usersController    =   {
     show: async (request: AuthenticatedRequest, response: Response) =>  {
@@ -50,5 +51,21 @@ export const usersController    =   {
                 }
             }
         })
+    },
+    
+    delete: async (request: AuthenticatedRequest, response: Response)   =>  {
+        const { id } = request.params
+
+        try {
+            await User.destroy({
+                where: { id: id }
+            })
+    
+            return response.status(204).send()
+        } catch (err) {
+            if (err instanceof Error) {
+                return response.status(400).json({ message: err.message })
+            }
+        }
     }
 }

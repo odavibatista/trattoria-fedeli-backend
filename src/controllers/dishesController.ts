@@ -101,7 +101,6 @@ export const dishesController = {
     },
 
     show: async (request: AuthenticatedRequest, response: Response) =>  {
-        const userId = request.user!.id
         const dishId = request.params.id
 
         try {

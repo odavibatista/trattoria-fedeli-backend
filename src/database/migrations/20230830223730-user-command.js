@@ -8,7 +8,7 @@ module.exports = {
         allowNull: false,
         primaryKey: true,
         references: {
-          model: 'users',
+          model: 'user',
           key: 'id'
         },
         onUpdate: 'CASCADE',
@@ -42,6 +42,6 @@ module.exports = {
   },
 
   async down (queryInterface, Sequelize) {
-    await queryInterface.dropTable('job_candidates')
+    await queryInterface.dropTable('user_command')
   }
 };

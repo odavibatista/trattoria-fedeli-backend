@@ -29,21 +29,5 @@ export const categoriesController   =   {
                 return response.status(400).json({ message: error.message })
             }
         }
-    },
-
-    delete: async (req: Request, res: Response) => {
-        const { id } = req.params
-
-        try {
-            await Category.destroy({
-                where: { id: id }
-            })
-    
-            return res.status(204).send()
-        } catch (err) {
-            if (err instanceof Error) {
-                return res.status(400).json({ message: err.message })
-            }
-        }
     }
 }

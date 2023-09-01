@@ -15,6 +15,19 @@ export const usersController    =   {
         }
     },
 
+    findUser: async (request: AuthenticatedRequest, response: Response) =>  {
+        const { id } = request.params
+
+        try {
+            const user = await userService.findByIdWithCommand(id)
+            return response.json(user)
+        } catch (error) {
+            if (error instanceof Error) {
+                return response.status(400).json({ message: error.message })
+            }
+        }
+    },
+
     update: async (request: AuthenticatedRequest, response: Response)   =>  {
         const { id } = request.user!
         const { firstName, lastName, email } = request.body

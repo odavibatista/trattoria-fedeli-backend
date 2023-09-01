@@ -35,5 +35,14 @@ export const userService    =   {
         })
     
         return updatedUsers[0]
+    },
+
+    findByIdWithCommand: async (id: string) =>  {
+        const userWithCommand = await User.findByPk(id, {
+            attributes: ['id', 'firstName', 'lastName', 'email', 'role'],
+
+        })
+        
+        return userWithCommand
     }
 }

@@ -3,13 +3,12 @@ import { dishService } from "../services/dishService";
 import { getPaginationParams } from "../helpers/getPaginationParams";
 import { AuthenticatedRequest } from "../middlewares/auth";
 import { Dish } from "../models";
+import { sequelize } from "../database";
 
 export const dishesController = {
-    index: async (request: Request, response: Response) =>  {
-        const [page, perPage] = getPaginationParams(request.query)
-        
+    index: async (request: AuthenticatedRequest, response: Response) =>  {
         try {
-            const paginatedDishes = await dishService.findAllPaginated(page, perPage)
+            const paginatedDishes = await Dish.findAll()
 
             return response.json(paginatedDishes)
         } catch (error) {
@@ -21,7 +20,6 @@ export const dishesController = {
 
     save: async (request: Request, response: Response)  =>  {
         const { name, details, vegetarian, price, imageUrl, categoryId } = request.body
-
         try {
             const dish = await Dish.create({
                 name,
@@ -83,19 +81,19 @@ export const dishesController = {
         }
     },
 
-    search: async (request: Request, response: Response)    =>  {
-        const { name } = request.query
-        const [ page, perPage ] = getPaginationParams(request.query)
-
+    /* This function triggers in two different ways: If the dish name cannot be found, it will try searching by its description, based on the other service's function */
+    search: async (req: Request, res: Response) => {
+        const { name } = req.query
+        const [ page, perPage ] = getPaginationParams(req.query)
+    
         try {
-
-            if (typeof name !== 'string') throw new Error('O nome deve ser uma string.')
-            const dishes = await dishService.findByName(name, page, perPage)
-            return response.json(dishes)
-
-        } catch (error) {
-            if (error instanceof Error) {
-                return response.status(400).json({ message: error.message })
+            if (typeof name !== 'string') throw new Error('Nome deve ser uma string');
+            let dishes = await dishService.findByName(name, page, perPage)
+            if (dishes.dishes.length === 0) dishes = await dishService.findByDescription(name, page, perPage)
+            return res.json(dishes)
+        } catch (err) {
+            if (err instanceof Error) {
+                return res.status(400).json({ message: err.message })
             }
         }
     },
@@ -120,6 +118,17 @@ export const dishesController = {
         try {
             const vegetarianDishes = await dishService.getVegetarianDishes()
             return response.json(vegetarianDishes)
+        } catch (error) {
+            if (error instanceof Error) {
+                return response.status(400).json({ message: error.message })
+            }
+        }
+    },
+
+    notVegetarians: async (request: Request, response: Response)    =>  {
+        try {
+            const notVegetarianDishes = await dishService.getNotVegetarianDishes()
+            return response.json(notVegetarianDishes)
         } catch (error) {
             if (error instanceof Error) {
                 return response.status(400).json({ message: error.message })

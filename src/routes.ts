@@ -9,27 +9,27 @@ export const router = express.Router()
 
 /*Authentication routes*/
 
-router.post('/auth/register', authController.register)
-router.post('/auth/login', authController.login)
+router.post('/auth/register', authController.register) /* Register a new user on system */
+router.post('/auth/login', authController.login) /* Login with valid credentials on system */
 
 /*Categories routes*/
-router.get('/categories', ensureAuth, categoriesController.index)
-router.get('/categories/:id', ensureAuth, categoriesController.show)
+router.get('/categories', ensureAuth, categoriesController.index) /* Get all dish categories */
+router.get('/categories/:id', ensureAuth, categoriesController.show) /* Search for a specific category */
 
 /*Dishes routes*/
-router.get('/dishes', ensureAuth, dishesController.index)
-router.get('/dishes/vegs', ensureAuth, dishesController.vegetarians)
-router.get('/dishes/not-vegs', ensureAuth, dishesController.notVegetarians)
-router.get('/dish/search', ensureAuth, dishesController.search)
-router.get('/dishes/:id', ensureAuth, dishesController.show)
-router.post('/dishes', ensureAuth, dishesController.save)
-router.put('/dishes/:id', ensureAuth, dishesController.update)
-router.delete('/dishes/:id', ensureAuth, dishesController.delete)
+router.get('/dishes', ensureAuth, dishesController.index) /* Find all dishes */
+router.get('/dishes/vegs', ensureAuth, dishesController.vegetarians) /* Find all the vegetarian dishes */
+router.get('/dishes/not-vegs', ensureAuth, dishesController.notVegetarians) /* Find all the dishes that are not vegetarian */
+router.get('/dish/search', ensureAuth, dishesController.search) /* Serach for a dish through name or description */
+router.get('/dishes/:id', ensureAuth, dishesController.show) /* Find a dish by its id */
+router.post('/dishes', ensureAuth, dishesController.save) /* Register a new dish on the system */
+router.put('/dishes/:id', ensureAuth, dishesController.update) /* Change a dish's informations */
+router.delete('/dishes/:id', ensureAuth, dishesController.delete) /* Remove a dish from the system */
 
 
 /*User routes*/
-router.get('/users/current', ensureAuth, usersController.show)
-router.get('/users/:id', ensureAuth, usersController.findUser)
-router.put('/users/current', ensureAuth, usersController.update)
-router.put('/users/current/password', ensureAuth, usersController.updatePassword)
-router.delete('/users/:id', ensureAuth, usersController.delete)
+router.get('/users/current', ensureAuth, usersController.show) /* See the current user's data */
+router.get('/users/:id', ensureAuth, usersController.findUser) /* Find an user's data */
+router.put('/users/current', ensureAuth, usersController.update) /* Update the current user's data */
+router.put('/users/current/password', ensureAuth, usersController.updatePassword) /* Update the current user's password */
+router.delete('/users/:id', ensureAuth, usersController.delete) /* Delete an user from the database */

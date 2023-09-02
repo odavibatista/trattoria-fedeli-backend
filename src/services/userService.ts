@@ -40,7 +40,13 @@ export const userService    =   {
     findByIdWithCommand: async (id: string) =>  {
         const userWithCommand = await User.findByPk(id, {
             attributes: ['id', 'firstName', 'lastName', 'email', 'role'],
-
+            include: {
+                association: 'command',
+                attributes: [
+                    'id',
+                    ['user_id', 'userId'],
+                ]
+            }
         })
         
         return userWithCommand

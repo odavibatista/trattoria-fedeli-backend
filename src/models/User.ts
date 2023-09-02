@@ -17,14 +17,8 @@ export interface User {
 export interface UserCreationAttributes extends Optional<User, 'id'> { }
 
 export interface UserInstance extends Model<User, UserCreationAttributes>, User {
-    addDish: BelongsToManyAddAssociationMixin<DishInstance, number>,
-    addDishes: BelongsToManyAddAssociationsMixin<DishInstance, number>,
     checkPassword: (password: string, callbackfn: CheckPasswordCallback) => void,
-    countDishes: BelongsToManyCountAssociationsMixin,
-    getDishes: BelongsToManyGetAssociationsMixin<DishInstance>,
-    hasDishes: BelongsToManyHasAssociationMixin<DishInstance, number>
-    removeDish: BelongsToManyRemoveAssociationMixin<DishInstance, number>
-    removeDishes: BelongsToManyRemoveAssociationsMixin<DishInstance, number>
+
 }
 
 export const User = sequelize.define<UserInstance, User>('User', {

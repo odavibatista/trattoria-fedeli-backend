@@ -4,6 +4,7 @@ import { ensureAuth } from './middlewares/auth'
 import { categoriesController } from './controllers/categoriesController'
 import { dishesController } from './controllers/dishesController'
 import { usersController } from './controllers/usersController'
+import { commandsController } from './controllers/commandsController'
 
 export const router = express.Router()
 
@@ -33,3 +34,8 @@ router.get('/users/:id', ensureAuth, usersController.findUser) /* Find an user's
 router.put('/users/current', ensureAuth, usersController.update) /* Update the current user's data */
 router.put('/users/current/password', ensureAuth, usersController.updatePassword) /* Update the current user's password */
 router.delete('/users/:id', ensureAuth, usersController.delete) /* Delete an user from the database */
+
+/* User Command routes */
+router.get('/command', ensureAuth, commandsController.index)
+router.post('/commands', ensureAuth, commandsController.save)
+router.delete('/commands/:id', ensureAuth, commandsController.delete)

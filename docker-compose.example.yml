@@ -12,7 +12,7 @@ services:
       - "3000:3000"
 
     environment:
-      DATABASE_URL: "postgres://'user':'password'@localhost:5432/api_name"
+      DATABASE_URL: "postgres://USER:PASSWORD@localhost:5432/api_name"
       NODE_ENV: "development"
 
     networks:
@@ -26,8 +26,8 @@ services:
       - "49555:5432"
 
     networks:
-      - postgres-boilerplate
+      - trattoria-fedeli
 
 networks:
-  postgres-boilerplate:
+  trattoria-fedeli:
     driver: bridge

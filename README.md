@@ -19,7 +19,7 @@ This application contains the back-end and database containing for the Trattoria
 - General administration features.
 
 ## How to use <a name = "how-to-use"></a>
-* SubIndex
+### SubIndex
 - [Normal Installation](#normal-install)
 - [Docker Installation](#docker-install)
 - [User Panel](#user-panel)
@@ -33,7 +33,7 @@ After that, we need to set the environment's configurations. At the URL's exampl
 Now, for the mounting of the API, go to the ```.api.json``` file on the root directory, and paste all its content on your API Management Tool. It works properly on Postman.
 After that, we're ready to launch the database and its API.
 
-* Normal Installation <a name = "normal-install"></a>
+## Normal Installation <a name = "normal-install"></a>
 After doing that, we need to install the application's dependencies. Run:
 
 ```$ npm install (or npm install --force, if any problem is shown.)```
@@ -45,15 +45,16 @@ Run:
 ```$ npm run create```
 After launching the command, the database will be fully fulfilled, and will become available to be used and tested. After that, we only will need to run ```$ npm run dev```if we want to run it.
 
-* Docker Installation <a name = "docker-install"></a>
+## Docker Installation <a name = "docker-install"></a>
 If you're using Docker, we have one more step to follow before launching the database. We need to change some stuff in the ```docker-compose.example.yml``` file. We only need to change the environment variable 'DATABASE_URL' with the value we inserted on the ```.env``` file. After doing that, rename the example file to ```docker-compose.yml```, and run the Docker commands:
 
 ```docker-compose build```
 ```docker-compose up```
 After that, our application will be built, and the container is ready for usage.
 
-* Accessing the panel <a name = "user-panel"></a>
+## Accessing the panel <a name = "user-panel"></a>
 After doing that, we now need to go to the administration panel.
+
 Go to:
 ```localhost:3000/admin```
 
@@ -64,16 +65,19 @@ Password: fedeli_133
 ```
 After that, we have full access to the administration section.
 
-* Testing the API <a name = "api-testing"></a>
+## Testing the API <a name = "api-testing"></a>
 After pasting the API's information on your app, we need to run one of its routes before trying others. Run the database, so we can follow this process.
 Head to 'Authentication > Login', and send the request:
+
 ![Alt text](image-3.png)
 
 After that, we will receive a response containing a token. We need this token in order to run the other requests.
+
 ![Alt text](image-4.png)
 
 Copy the token, and then go to the API's main window, and follow to the 'Variables' section.
 After that, change the 'userToken' variable with the one you just received from the 'Login' request, pasting it:
+
 ![Alt text](image-5.png)
 
 After doing that, we're finally done, and able to use the application for tests and increments.

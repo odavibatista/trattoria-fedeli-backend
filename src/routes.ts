@@ -36,6 +36,7 @@ router.put('/users/current/password', ensureAuth, usersController.updatePassword
 router.delete('/users/:id', ensureAuth, usersController.delete) /* Delete an user from the database */
 
 /* User Command routes */
-router.get('/command', ensureAuth, commandsController.index)
+router.get('/commands', ensureAuth, commandsController.index)
+router.get('/command', ensureAuth, commandsController.show)
 router.post('/commands', ensureAuth, commandsController.save)
 router.delete('/commands/:id', ensureAuth, commandsController.delete)

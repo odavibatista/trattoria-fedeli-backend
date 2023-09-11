@@ -1,9 +1,22 @@
 import { Response } from "express";
 import { AuthenticatedRequest } from "../middlewares/auth";
 import { commandService } from "../services/commandService";
+import { Command } from "../models";
 
 export const commandsController = {
-    index: async    (request: AuthenticatedRequest, response: Response) =>  {
+    index: async   (request: AuthenticatedRequest, response: Response) =>  {
+        try {
+            const commands = (await Command.findAll()).reverse()
+
+            return response.json(commands)
+        } catch (error) {
+            if (error instanceof Error) {
+                return response.status(400).json({ message: error.message })
+            }
+        }
+    },
+
+    show: async    (request: AuthenticatedRequest, response: Response) =>  {
         const userId = request.user!.id
 
         try {

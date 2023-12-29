@@ -8,5 +8,10 @@ module.exports = {
     
     test: {
         url: process.env.DATABASE_URL?.replace(/_development/, '_test')
-    }
+    },
+
+    db_je3k: {
+        dialect: 'postgres'
+    },
+    
 }

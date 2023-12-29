@@ -33,6 +33,7 @@
     "@adminjs/express": "^5.1.0",
     "@adminjs/sequelize": "^3.0.0",
     "@adminjs/upload": "^3.0.1",
+    "@tiptap/pm": "^2.1.13",
     "adminjs": "^6.8.7",
     "bcrypt": "~5.0.1",
     "connect-session-sequelize": "^7.1.6",

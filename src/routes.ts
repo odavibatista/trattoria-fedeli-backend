@@ -5,11 +5,11 @@ import { categoriesController } from './controllers/categoriesController'
 import { dishesController } from './controllers/dishesController'
 import { usersController } from './controllers/usersController'
 import { commandsController } from './controllers/commandsController'
+import { lifeCheckController } from './controllers/lifeCheckController'
 
 export const router = express.Router()
 
 /*Authentication routes*/
-
 router.post('/auth/register', authController.register) /* Register a new user on system */
 router.post('/auth/login', authController.login) /* Login with valid credentials on system */
 
@@ -40,3 +40,6 @@ router.get('/commands', ensureAuth, commandsController.index)
 router.get('/command', ensureAuth, commandsController.show)
 router.post('/commands', ensureAuth, commandsController.save)
 router.delete('/commands/:id', ensureAuth, commandsController.delete)
+
+/* Life Checking routes */
+router.get('/lifecheck', lifeCheckController.check)
